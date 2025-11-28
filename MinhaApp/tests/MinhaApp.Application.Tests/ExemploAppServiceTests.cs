@@ -2,6 +2,7 @@ using Xunit;
 using Moq;
 using MinhaApp.Application.Services;
 using MinhaApp.Application.Interfaces;
+using MinhaApp.Application.DTOs;
 using MinhaApp.Domain.Entities;
 using MinhaApp.Domain.Interfaces;
 using System.Threading.Tasks;
@@ -23,12 +24,14 @@ namespace MinhaApp.Application.Tests
         public async Task CreateExemplo_ShouldAddExemplo_WhenValidData()
         {
             // Arrange
-            var exemplo = new ExemploEntity { /* Initialize properties */ };
+            var exemploEntity = new ExemploEntity("Teste");
             _exemploRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<ExemploEntity>()))
-                                  .ReturnsAsync(exemplo);
+                                  .Returns(Task.CompletedTask);
+
+            var dto = new ExemploDto { Nome = "Teste" };
 
             // Act
-            var result = await _exemploService.CreateExemploAsync(exemplo);
+            var result = await _exemploService.CreateAsync(dto);
 
             // Assert
             Assert.NotNull(result);

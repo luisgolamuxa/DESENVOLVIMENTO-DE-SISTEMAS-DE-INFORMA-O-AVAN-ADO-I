@@ -1,0 +1,40 @@
+@model IEnumerable<MinhaApp.Application.DTOs.ProdutoDto>
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h2>Produtos</h2>
+
+<p>
+    <a asp-action="Create">Criar novo</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@{
+    var categorias = ViewBag.Categorias as IEnumerable<MinhaApp.Application.DTOs.CategoriaDto> ?? Enumerable.Empty<MinhaApp.Application.DTOs.CategoriaDto>();
+}
+@foreach(var p in Model)
+{
+    <tr>
+        <td>@p.Nome</td>
+        <td>
+            @(categorias.FirstOrDefault(c => c.Id == p.CategoriaId)?.Nome ?? "-")
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@p.Id">Editar</a> |
+            <form asp-action="Delete" asp-route-id="@p.Id" method="post" style="display:inline">
+                <button type="submit">Excluir</button>
+            </form>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

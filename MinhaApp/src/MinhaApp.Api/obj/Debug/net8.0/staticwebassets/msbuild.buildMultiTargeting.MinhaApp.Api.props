@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/MinhaApp.Api.props" />
+</Project>

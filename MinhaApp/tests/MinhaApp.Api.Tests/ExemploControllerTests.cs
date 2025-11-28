@@ -5,8 +5,11 @@ using MinhaApp.Api;
 using MinhaApp.Application.Interfaces;
 using MinhaApp.Application.DTOs;
 using Moq;
+using System.Linq;
+using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -24,7 +27,10 @@ namespace MinhaApp.Api.Tests
             {
                 builder.ConfigureServices(services =>
                 {
-                    services.AddScoped(_ => _exemploServiceMock.Object);
+                    // Remove existing registration and replace with mock
+                    var existing = services.SingleOrDefault(d => d.ServiceType == typeof(IExemploService));
+                    if (existing != null) services.Remove(existing);
+                    services.AddScoped<IExemploService>(_ => _exemploServiceMock.Object);
                 });
             }).CreateClient();
         }
@@ -33,11 +39,12 @@ namespace MinhaApp.Api.Tests
         public async Task GetExemplo_ReturnsOkResult()
         {
             // Arrange
-            var exemploDto = new ExemploDto { Id = 1, Nome = "Exemplo" };
-            _exemploServiceMock.Setup(service => service.GetExemploAsync(1)).ReturnsAsync(exemploDto);
+            var id = Guid.NewGuid();
+            var exemploDto = new ExemploDto { Id = id, Nome = "Exemplo" };
+            _exemploServiceMock.Setup(service => service.GetByIdAsync(id)).ReturnsAsync(exemploDto);
 
             // Act
-            var response = await _client.GetAsync("/api/exemplo/1");
+            var response = await _client.GetAsync($"/api/exemplo/{id}");
 
             // Assert
             response.EnsureSuccessStatusCode();
@@ -48,14 +55,19 @@ namespace MinhaApp.Api.Tests
         public async Task CreateExemplo_ReturnsCreatedResult()
         {
             // Arrange
-            var exemploDto = new ExemploDto { Nome = "Novo Exemplo" };
-            _exemploServiceMock.Setup(service => service.CreateExemploAsync(exemploDto)).ReturnsAsync(1);
+            var exemploDto = new ExemploDto { Nome = "Novo Exemplo", Descricao = "Descrição teste" };
+            var created = new ExemploDto { Id = Guid.NewGuid(), Nome = exemploDto.Nome };
+            _exemploServiceMock.Setup(service => service.CreateAsync(It.IsAny<ExemploDto>())).ReturnsAsync(created);
 
             // Act
             var response = await _client.PostAsJsonAsync("/api/exemplo", exemploDto);
 
             // Assert
-            response.EnsureSuccessStatusCode();
+            if (response.StatusCode != HttpStatusCode.Created)
+            {
+                var body = await response.Content.ReadAsStringAsync();
+                throw new Xunit.Sdk.XunitException($"Expected 201 Created but got {(int)response.StatusCode}: {body}");
+            }
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
         }
 
@@ -63,14 +75,19 @@ namespace MinhaApp.Api.Tests
         public async Task UpdateExemplo_ReturnsNoContentResult()
         {
             // Arrange
-            var exemploDto = new ExemploDto { Id = 1, Nome = "Exemplo Atualizado" };
-            _exemploServiceMock.Setup(service => service.UpdateExemploAsync(exemploDto)).Returns(Task.CompletedTask);
+            var id = Guid.NewGuid();
+            var exemploDto = new ExemploDto { Id = id, Nome = "Exemplo Atualizado", Descricao = "Descricao atualizada" };
+            _exemploServiceMock.Setup(service => service.UpdateAsync(It.IsAny<ExemploDto>())).Returns(Task.CompletedTask);
 
             // Act
-            var response = await _client.PutAsJsonAsync("/api/exemplo", exemploDto);
+            var response = await _client.PutAsJsonAsync($"/api/exemplo/{id}", exemploDto);
 
             // Assert
-            response.EnsureSuccessStatusCode();
+            if (response.StatusCode != HttpStatusCode.NoContent)
+            {
+                var body = await response.Content.ReadAsStringAsync();
+                throw new Xunit.Sdk.XunitException($"Expected 204 NoContent but got {(int)response.StatusCode}: {body}");
+            }
             Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
         }
 
@@ -78,10 +95,11 @@ namespace MinhaApp.Api.Tests
         public async Task DeleteExemplo_ReturnsNoContentResult()
         {
             // Arrange
-            _exemploServiceMock.Setup(service => service.DeleteExemploAsync(1)).Returns(Task.CompletedTask);
+            var id = Guid.NewGuid();
+            _exemploServiceMock.Setup(service => service.DeleteAsync(id)).Returns(Task.CompletedTask);
 
             // Act
-            var response = await _client.DeleteAsync("/api/exemplo/1");
+            var response = await _client.DeleteAsync($"/api/exemplo/{id}");
 
             // Assert
             response.EnsureSuccessStatusCode();

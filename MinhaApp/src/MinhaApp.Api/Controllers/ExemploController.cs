@@ -25,7 +25,7 @@ namespace MinhaApp.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ExemploDto>> GetById(int id)
+        public async Task<ActionResult<ExemploDto>> GetById(Guid id)
         {
             var exemplo = await _exemploService.GetByIdAsync(id);
             if (exemplo == null)
@@ -43,7 +43,7 @@ namespace MinhaApp.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] ExemploDto exemploDto)
+        public async Task<ActionResult> Update(Guid id, [FromBody] ExemploDto exemploDto)
         {
             if (id != exemploDto.Id)
             {
@@ -55,7 +55,7 @@ namespace MinhaApp.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             await _exemploService.DeleteAsync(id);
             return NoContent();

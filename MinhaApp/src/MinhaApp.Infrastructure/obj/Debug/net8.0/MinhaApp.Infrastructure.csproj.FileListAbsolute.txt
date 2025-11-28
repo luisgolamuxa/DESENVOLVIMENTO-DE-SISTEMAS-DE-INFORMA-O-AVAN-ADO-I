@@ -1,0 +1,16 @@
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.csproj.AssemblyReference.cache
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.csproj.CoreCompileInputs.cache
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.sourcelink.json
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/bin/Debug/net8.0/MinhaApp.Infrastructure.deps.json
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/bin/Debug/net8.0/MinhaApp.Infrastructure.runtimeconfig.json
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/bin/Debug/net8.0/MinhaApp.Infrastructure.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/bin/Debug/net8.0/MinhaApp.Infrastructure.pdb
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/bin/Debug/net8.0/MinhaApp.Domain.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/bin/Debug/net8.0/MinhaApp.Domain.pdb
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.B2274C5A.Up2Date
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/refint/MinhaApp.Infrastructure.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.pdb
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/MinhaApp.Infrastructure.genruntimeconfig.cache
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Infrastructure/obj/Debug/net8.0/ref/MinhaApp.Infrastructure.dll

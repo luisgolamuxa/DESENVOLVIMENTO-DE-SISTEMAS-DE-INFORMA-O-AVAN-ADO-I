@@ -2,6 +2,7 @@ using MinhaApp.Domain.Entities;
 using MinhaApp.Domain.Interfaces;
 using MinhaApp.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,9 +17,10 @@ namespace MinhaApp.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<ExemploEntity> GetByIdAsync(int id)
+        public async Task<ExemploEntity?> GetByIdAsync(Guid id)
         {
-            return await _context.Exemplos.FindAsync(id);
+            var entry = await _context.Exemplos.FindAsync(id);
+            return entry;
         }
 
         public async Task<IEnumerable<ExemploEntity>> GetAllAsync()
@@ -38,7 +40,7 @@ namespace MinhaApp.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var exemplo = await GetByIdAsync(id);
             if (exemplo != null)

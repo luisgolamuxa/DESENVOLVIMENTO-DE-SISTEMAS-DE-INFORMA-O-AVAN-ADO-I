@@ -1,0 +1,10 @@
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/MinhaApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/MinhaApp.Domain.csproj.CoreCompileInputs.cache
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/MinhaApp.Domain.sourcelink.json
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/bin/Debug/net8.0/MinhaApp.Domain.deps.json
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/bin/Debug/net8.0/MinhaApp.Domain.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/bin/Debug/net8.0/MinhaApp.Domain.pdb
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/MinhaApp.Domain.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/refint/MinhaApp.Domain.dll
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/MinhaApp.Domain.pdb
+/workspaces/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I/MinhaApp/src/MinhaApp.Domain/obj/Debug/net8.0/ref/MinhaApp.Domain.dll

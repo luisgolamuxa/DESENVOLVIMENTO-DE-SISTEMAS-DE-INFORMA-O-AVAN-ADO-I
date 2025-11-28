@@ -12,14 +12,22 @@ namespace MinhaApp.Infrastructure.Configurations
 
             builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.Name)
+            builder.Property(e => e.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Nome");
 
-            builder.Property(e => e.Description)
-                .HasMaxLength(500);
+            builder.Property(e => e.Descricao)
+                .HasMaxLength(500)
+                .HasColumnName("Descricao");
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(e => e.DataCriacao)
+                .IsRequired()
+                .HasColumnName("DataCriacao");
+
+            builder.Property(e => e.Status)
+                .IsRequired()
+                .HasColumnName("Status");
         }
     }
 }

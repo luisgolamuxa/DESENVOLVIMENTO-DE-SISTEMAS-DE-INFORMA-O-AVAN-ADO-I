@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Mapster;
 using MinhaApp.Application.DTOs;
 using MinhaApp.Application.Interfaces;
 using MinhaApp.Domain.Entities;
@@ -14,46 +16,38 @@ namespace MinhaApp.Application.Services
         public ExemploAppService(IExemploRepository exemploRepository)
         {
             _exemploRepository = exemploRepository;
+            // Ensure Mapster mappings are registered for unit tests and non-web hosts
+            MinhaApp.Application.Mapping.MapsterConfig.RegisterMappings();
         }
 
         public async Task<ExemploDto> CreateAsync(ExemploDto exemploDto)
         {
-            var exemploEntity = new ExemploEntity
-            {
-                // Mapear propriedades de exemploDto para exemploEntity
-            };
-
+            // Constrói explicitamente a entidade para evitar dependência de mapeamento em tempo de teste
+            var exemploEntity = new ExemploEntity(exemploDto.Nome ?? string.Empty, exemploDto.Descricao ?? string.Empty);
             await _exemploRepository.AddAsync(exemploEntity);
-            return exemploDto; // Retornar o DTO após a criação
+            var created = new ExemploDto
+            {
+                Id = exemploEntity.Id,
+                Nome = exemploEntity.Nome,
+                Descricao = exemploEntity.Descricao,
+                DataCriacao = exemploEntity.DataCriacao,
+                Status = exemploEntity.Status.ToString()
+            };
+            return created;
         }
 
-        public async Task<ExemploDto> GetByIdAsync(int id)
+        public async Task<ExemploDto?> GetByIdAsync(Guid id)
         {
             var exemploEntity = await _exemploRepository.GetByIdAsync(id);
             if (exemploEntity == null) return null;
-
-            var exemploDto = new ExemploDto
-            {
-                // Mapear propriedades de exemploEntity para exemploDto
-            };
-
-            return exemploDto;
+            return exemploEntity.Adapt<ExemploDto>();
         }
 
         public async Task<IEnumerable<ExemploDto>> GetAllAsync()
         {
             var exemploEntities = await _exemploRepository.GetAllAsync();
-            var exemploDtos = new List<ExemploDto>();
-
-            foreach (var exemplo in exemploEntities)
-            {
-                exemploDtos.Add(new ExemploDto
-                {
-                    // Mapear propriedades de exemplo para exemploDto
-                });
-            }
-
-            return exemploDtos;
+            var mapped = exemploEntities.Adapt<IEnumerable<ExemploDto>>();
+            return mapped ?? System.Linq.Enumerable.Empty<ExemploDto>();
         }
 
         public async Task UpdateAsync(ExemploDto exemploDto)
@@ -61,16 +55,16 @@ namespace MinhaApp.Application.Services
             var exemploEntity = await _exemploRepository.GetByIdAsync(exemploDto.Id);
             if (exemploEntity == null) return;
 
-            // Mapear propriedades de exemploDto para exemploEntity
+            exemploEntity.Atualizar(exemploDto.Nome, exemploDto.Descricao);
             await _exemploRepository.UpdateAsync(exemploEntity);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var exemploEntity = await _exemploRepository.GetByIdAsync(id);
             if (exemploEntity == null) return;
 
-            await _exemploRepository.DeleteAsync(exemploEntity);
+            await _exemploRepository.DeleteAsync(id);
         }
     }
 }

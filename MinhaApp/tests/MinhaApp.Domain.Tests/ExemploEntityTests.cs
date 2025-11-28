@@ -9,30 +9,25 @@ namespace MinhaApp.Domain.Tests
         public void CriarExemploEntity_ValidaPropriedades()
         {
             // Arrange
-            var exemplo = new ExemploEntity
-            {
-                // Inicialize as propriedades necessárias
-            };
+            var exemplo = new ExemploEntity("Teste", "Descricao");
 
             // Act & Assert
             Assert.NotNull(exemplo);
-            // Adicione mais asserts para validar as propriedades
+            Assert.Equal("Teste", exemplo.Nome);
         }
 
         [Fact]
-        public void ExemploEntity_AlterarPropriedade_AtualizaValor()
+        public void ExemploEntity_Atualizar_AlteraValores()
         {
             // Arrange
-            var exemplo = new ExemploEntity
-            {
-                // Inicialize as propriedades necessárias
-            };
+            var exemplo = new ExemploEntity("Inicial", "Desc");
 
             // Act
-            exemplo.AlgumaPropriedade = "Novo Valor";
+            exemplo.Atualizar("Novo", "NovaDesc");
 
             // Assert
-            Assert.Equal("Novo Valor", exemplo.AlgumaPropriedade);
+            Assert.Equal("Novo", exemplo.Nome);
+            Assert.Equal("NovaDesc", exemplo.Descricao);
         }
 
         // Adicione mais testes conforme necessário

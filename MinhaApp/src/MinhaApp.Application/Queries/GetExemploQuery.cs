@@ -1,9 +1,10 @@
-using MediatR;
 using System.Collections.Generic;
+using MinhaApp.Application.DTOs;
 
 namespace MinhaApp.Application.Queries
 {
-    public class GetExemploQuery : IRequest<List<ExemploDto>>
+    // Placeholder query class (não depende de MediatR)
+    public class GetExemploQuery
     {
         // Add any necessary parameters for the query here
     }

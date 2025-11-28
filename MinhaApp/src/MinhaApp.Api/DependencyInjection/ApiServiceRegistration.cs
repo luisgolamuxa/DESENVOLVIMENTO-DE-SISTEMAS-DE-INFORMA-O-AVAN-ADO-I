@@ -11,7 +11,8 @@ namespace MinhaApp.Api.DependencyInjection
         public static void AddApiServices(this IServiceCollection services)
         {
             services.AddScoped<IExemploService, ExemploAppService>();
-            services.AddScoped<IExemploRepository, ExemploRepository>();
+            services.AddScoped<MinhaApp.Application.Interfaces.ICategoriaService, MinhaApp.Application.Services.CategoriaAppService>();
+            services.AddScoped<MinhaApp.Application.Interfaces.IProdutoService, MinhaApp.Application.Services.ProdutoAppService>();
         }
     }
 }

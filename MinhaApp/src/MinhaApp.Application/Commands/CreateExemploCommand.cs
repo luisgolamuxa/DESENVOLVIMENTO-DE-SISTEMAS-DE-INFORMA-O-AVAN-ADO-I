@@ -1,12 +1,12 @@
-using MediatR;
-
 namespace MinhaApp.Application.Commands
 {
-    public class CreateExemploCommand : IRequest<int>
+    // Placeholder command class — MediatR não está como dependência obrigatória
+    public class CreateExemploCommand
     {
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-        // Adicione outras propriedades necessárias para a criação do Exemplo
+        public string Nome { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
+
+        public CreateExemploCommand() { }
 
         public CreateExemploCommand(string nome, string descricao)
         {

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using MinhaApp.Api;
 
 public class Program
 {
@@ -14,3 +15,4 @@ public class Program
             {
                 webBuilder.UseStartup<Startup>();
             });
+}

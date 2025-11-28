@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MinhaApp.Domain.Entities;
 using MinhaApp.Domain.Interfaces;
 
@@ -14,34 +15,29 @@ namespace MinhaApp.Domain.Services
             _exemploRepository = exemploRepository;
         }
 
-        public void AddExemplo(ExemploEntity exemplo)
+        public async Task AddExemploAsync(ExemploEntity exemplo)
         {
-            // Lógica de negócio para adicionar um exemplo
-            _exemploRepository.Add(exemplo);
+            await _exemploRepository.AddAsync(exemplo);
         }
 
-        public void UpdateExemplo(ExemploEntity exemplo)
+        public async Task UpdateExemploAsync(ExemploEntity exemplo)
         {
-            // Lógica de negócio para atualizar um exemplo
-            _exemploRepository.Update(exemplo);
+            await _exemploRepository.UpdateAsync(exemplo);
         }
 
-        public void DeleteExemplo(Guid exemploId)
+        public async Task DeleteExemploAsync(Guid exemploId)
         {
-            // Lógica de negócio para deletar um exemplo
-            _exemploRepository.Delete(exemploId);
+            await _exemploRepository.DeleteAsync(exemploId);
         }
 
-        public ExemploEntity GetExemploById(Guid exemploId)
+        public async Task<ExemploEntity?> GetExemploByIdAsync(Guid exemploId)
         {
-            // Lógica de negócio para obter um exemplo por ID
-            return _exemploRepository.GetById(exemploId);
+            return await _exemploRepository.GetByIdAsync(exemploId);
         }
 
-        public IEnumerable<ExemploEntity> GetAllExemplos()
+        public async Task<IEnumerable<ExemploEntity>> GetAllExemplosAsync()
         {
-            // Lógica de negócio para obter todos os exemplos
-            return _exemploRepository.GetAll();
+            return await _exemploRepository.GetAllAsync();
         }
     }
 }

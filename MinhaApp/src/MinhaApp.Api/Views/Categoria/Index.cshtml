@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h2>Categorias</h2>
+
+<input type="text" id="searchBox" placeholder="Buscar categorias..." />
+<button id="searchBtn">Buscar</button>
+
+<ul id="results"></ul>
+
+@section Scripts {
+    <script>
+        async function doSearch() {
+            const q = document.getElementById('searchBox').value;
+            const res = await fetch('/api/categoria/search?q=' + encodeURIComponent(q));
+            const data = await res.json();
+            const list = document.getElementById('results');
+            list.innerHTML = '';
+            data.forEach(c => {
+                const li = document.createElement('li');
+                li.textContent = c.nome + (c.produtos && c.produtos.length ? (' (' + c.produtos.length + ')') : '');
+                list.appendChild(li);
+            });
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', doSearch);
+        document.getElementById('searchBox').addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') doSearch();
+        });
+    </script>
+}

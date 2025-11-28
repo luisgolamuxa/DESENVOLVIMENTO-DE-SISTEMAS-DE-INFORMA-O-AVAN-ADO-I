@@ -1,0 +1,27 @@
+@model MinhaApp.Application.DTOs.ProdutoDto
+@{
+    ViewData["Title"] = "Criar Produto";
+}
+
+<h2>Criar Produto</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Nome</label>
+        <input asp-for="Nome" />
+    </div>
+    <div>
+        <label>Categoria</label>
+        <select asp-for="CategoriaId">
+            <option value="">-- selecione --</option>
+@{
+    var categorias = ViewBag.Categorias as IEnumerable<MinhaApp.Application.DTOs.CategoriaDto> ?? Enumerable.Empty<MinhaApp.Application.DTOs.CategoriaDto>();
+}
+@foreach(var c in categorias)
+{
+    <option value="@c.Id">@c.Nome</option>
+}
+        </select>
+    </div>
+    <button type="submit">Salvar</button>
+</form>

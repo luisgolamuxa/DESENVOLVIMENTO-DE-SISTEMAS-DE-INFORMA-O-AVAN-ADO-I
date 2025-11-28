@@ -20,7 +20,7 @@ namespace MinhaApp.Domain.ValueObjects
         }
 
         // Implementar métodos de igualdade e hashcode se necessário
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is ExemploValueObject other)
             {

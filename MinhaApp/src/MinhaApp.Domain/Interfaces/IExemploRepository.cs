@@ -1,11 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MinhaApp.Domain.Entities;
+
 namespace MinhaApp.Domain.Interfaces
 {
     public interface IExemploRepository
     {
-        void Add(ExemploEntity exemplo);
-        void Update(ExemploEntity exemplo);
-        void Delete(Guid id);
-        ExemploEntity GetById(Guid id);
-        IEnumerable<ExemploEntity> GetAll();
+        Task AddAsync(ExemploEntity exemplo);
+        Task UpdateAsync(ExemploEntity exemplo);
+        Task DeleteAsync(Guid id);
+        Task<ExemploEntity?> GetByIdAsync(Guid id);
+        Task<IEnumerable<ExemploEntity>> GetAllAsync();
     }
 }
