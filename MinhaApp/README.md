@@ -59,9 +59,3 @@ Notas
 - A seed de desenvolvimento foi adicionada em `Startup.Configure` (apenas para dev).
 - Ajustes de conexão em `appsettings.json` com `TrustServerCertificate=True;Encrypt=False` são apenas para desenvolvimento local no container.
 
-Próximos passos recomendados (opcionais)
-- Mover o seed para um seeder separado
-- Adicionar validações e testes para `Produto`
-- Polir UI e estilização das views
-
-Se quiser, eu gero um commit final/PR com tudo bem documentado — diga para eu prosseguir.
