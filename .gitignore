@@ -1,0 +1,33 @@
+## Ignore build outputs
+**/bin/
+**/obj/
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.ide
+
+# Rider
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+# Visual Studio cache/options
+*.[Cc]ache
+
+# Local DB
+*.db
+
+# dotnet watch files
+**/bin/Debug/**
+**/bin/Release/**
+**/obj/**

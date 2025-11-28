@@ -1,6 +1,0 @@
-{
-  "MinhaApp.Api, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null": "\/workspaces\/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I\/MinhaApp\/src\/MinhaApp.Api",
-  "MinhaApp.Application, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null": "\/workspaces\/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I\/MinhaApp\/src\/MinhaApp.Application",
-  "MinhaApp.Domain, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null": "\/workspaces\/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I\/MinhaApp\/src\/MinhaApp.Domain",
-  "MinhaApp.Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null": "\/workspaces\/DESENVOLVIMENTO-DE-SISTEMAS-DE-INFORMA-O-AVAN-ADO-I\/MinhaApp\/src\/MinhaApp.Infrastructure"
-}
